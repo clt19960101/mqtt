@@ -33,7 +33,7 @@ public class TokenApiClient {
      * @return 如果申请成功则返回 token 内容
      * @throws ClientException
      */
-    public String applyToken(List<String> topics) throws ClientException {
+    public ApplyTokenResponse applyToken(List<String> topics) throws ClientException {
         Collections.sort(topics);
         StringBuilder builder = new StringBuilder();
         for (String topic : topics) {
@@ -50,7 +50,7 @@ public class TokenApiClient {
         request.setActions(mqttProperties.getActions());
         request.setExpireTime(System.currentTimeMillis() + mqttProperties.getExpireTime());
         ApplyTokenResponse response = iAcsClient.getAcsResponse(request);
-        return response.getToken();
+        return response;
     }
 
     /**

@@ -1,7 +1,6 @@
 package com.dabanjia.mqtt.entity;
 
 import java.util.Date;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 /**
  * @ClassName DbjMessage
