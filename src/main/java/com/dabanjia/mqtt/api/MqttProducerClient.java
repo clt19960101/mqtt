@@ -98,7 +98,7 @@ public class MqttProducerClient {
      * @param clientId
      * @return
      */
-    private MqttClient connectMqttClient(String clientId,@NonNull Map<String, String> tokenData)
+    private MqttClient connectMqttClient(String clientId, @NonNull Map<String, String> tokenData)
         throws MqttException, NoSuchAlgorithmException, InvalidKeyException {
         MqttClient mqttClient = new MqttClient(
             TCP_PREFIX + mqttProperties.getEndPoint() + TCP_SUFFIX, clientId, persistence);

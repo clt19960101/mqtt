@@ -215,10 +215,4 @@ public class Tools {
         return jsonResult;
     }
 
-    public static void main(String[] args) {
-        JSONObject object = new JSONObject();
-        object.put("order", "true");//设置顺序发送的标记
-        System.out.println(object.toJSONString());
-    }
-
 }

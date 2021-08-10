@@ -1,14 +1,8 @@
 E:\mqtt\src\main\java\com\dabanjia\mqtt\api\MqttProducerClient.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\entity\DbjMessage.java
-E:\mqtt\src\main\java\com\dabanjia\mqtt\entity\ClientStatusEvent.java
-E:\mqtt\src\main\java\com\dabanjia\mqtt\config\MqttClientBeanConfig.java
-E:\mqtt\src\main\java\com\dabanjia\mqtt\entity\CommonResponseParams.java
-E:\mqtt\src\main\java\com\dabanjia\mqtt\entity\TokenApplyRequestParams.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\properties\ConnectionProperties.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\properties\MqttProperties.java
-E:\mqtt\src\main\java\com\dabanjia\mqtt\entity\CommonRequestParams.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\util\Tools.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\api\TokenApiClient.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\util\ConnectionOptionWrapper.java
-E:\mqtt\src\main\java\com\dabanjia\mqtt\entity\TokenApplyResponseParams.java
 E:\mqtt\src\main\java\com\dabanjia\mqtt\util\ClientUtil.java

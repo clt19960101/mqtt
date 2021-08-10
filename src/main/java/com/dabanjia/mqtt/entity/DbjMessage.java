@@ -9,6 +9,7 @@ import java.util.Date;
  * @Description
  */
 public class DbjMessage {
+
     /**
      * msgId
      */
@@ -20,11 +21,15 @@ public class DbjMessage {
     /**
      * 消息发送时间
      */
-    private Date sendTime;
+    private Long sendTime;
+    /**
+     * 消息发送人
+     */
+    private Long sendUserId;
     /**
      * 具体的业务数据
      */
-    private String data;
+    private Object data;
 
     public DbjMessage() {
     }
@@ -45,19 +50,27 @@ public class DbjMessage {
         this.msgType = msgType;
     }
 
-    public Date getSendTime() {
+    public Long getSendUserId() {
+        return sendUserId;
+    }
+
+    public void setSendUserId(Long sendUserId) {
+        this.sendUserId = sendUserId;
+    }
+
+    public Long getSendTime() {
         return sendTime;
     }
 
-    public void setSendTime(Date sendTime) {
+    public void setSendTime(Long sendTime) {
         this.sendTime = sendTime;
     }
 
-    public String getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }

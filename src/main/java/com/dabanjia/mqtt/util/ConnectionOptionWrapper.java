@@ -7,11 +7,7 @@ import com.dabanjia.mqtt.properties.MqttProperties;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import javax.annotation.Resource;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
