@@ -9,6 +9,7 @@ import com.aliyuncs.onsmqtt.model.v20200420.QueryTokenResponse;
 import com.aliyuncs.onsmqtt.model.v20200420.RevokeTokenRequest;
 import com.dabanjia.mqtt.properties.MqttProperties;
 import com.dabanjia.mqtt.util.ClientUtil;
+import com.dabanjia.mqtt.vo.ApplyTokenResponseVO;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
@@ -33,7 +34,7 @@ public class TokenApiClient {
      * @return 如果申请成功则返回 token 内容
      * @throws ClientException
      */
-    public ApplyTokenResponse applyToken(List<String> topics) throws ClientException {
+    public ApplyTokenResponseVO applyToken(List<String> topics) throws ClientException {
         Collections.sort(topics);
         StringBuilder builder = new StringBuilder();
         for (String topic : topics) {
@@ -48,9 +49,14 @@ public class TokenApiClient {
         request.setInstanceId(mqttProperties.getInstanceId());
         request.setResources(builder.toString());
         request.setActions(mqttProperties.getActions());
-        request.setExpireTime(System.currentTimeMillis() + mqttProperties.getExpireTime());
+        long expireTime = System.currentTimeMillis() + mqttProperties.getExpireTime();
+        request.setExpireTime(expireTime);
         ApplyTokenResponse response = iAcsClient.getAcsResponse(request);
-        return response;
+        ApplyTokenResponseVO tokenResponseVO = new ApplyTokenResponseVO();
+        tokenResponseVO.setToken(response.getToken());
+        tokenResponseVO.setRequestId(response.getRequestId());
+        tokenResponseVO.setExpireTime(expireTime);
+        return tokenResponseVO;
     }
 
     /**
