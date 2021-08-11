@@ -22,7 +22,7 @@ public class MqttProperties {
      */
     private String endPoint;
     /**
-     * 账号 accesskey，从账号系统控制台获取
+     * 账号 accessKey，从账号系统控制台获取
      */
     private String accessKey;
     /**
@@ -34,13 +34,9 @@ public class MqttProperties {
      */
     private String parentTopic;
     /**
-     * 子级 topic
-     */
-    private String subTopic;
-    /**
      * QoS参数代表传输质量，可选0，1，2
      */
-    private int qosLevel;
+    private Integer qosLevel;
     /**
      * Token的权限类型，取值说明如下：
      * <p>
@@ -51,51 +47,16 @@ public class MqttProperties {
      * Token失效的毫秒时间戳，允许设置的失效最小间隔是60秒，最长为30天。如果输入的取值超过30天，申请接口不会报错，但实际生效时间为30天。。
      */
     private Long expireTime;
-
-    private String token;
     /**
      * 微消息队列MQTT版实例所在地域（Region）。
      */
     private String regionId;
     /**
-     * 话题id
-     */
-    private String topicId;
-    /**
-     * 群组id
-     */
-    private String groupId;
-    /**
      * 客户端超时时间
      */
-    private int timeToWait;
+    private Long timeToWait;
 
     public MqttProperties() {
-    }
-
-
-    public String getParentTopic() {
-        return parentTopic;
-    }
-
-    public void setParentTopic(String parentTopic) {
-        this.parentTopic = parentTopic;
-    }
-
-    public String getSubTopic() {
-        return subTopic;
-    }
-
-    public void setSubTopic(String subTopic) {
-        this.subTopic = subTopic;
-    }
-
-    public int getQosLevel() {
-        return qosLevel;
-    }
-
-    public void setQosLevel(int qosLevel) {
-        this.qosLevel = qosLevel;
     }
 
     public String getActions() {
@@ -146,14 +107,6 @@ public class MqttProperties {
         this.secretKey = secretKey;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
     public String getEndPoint() {
         return endPoint;
     }
@@ -162,28 +115,27 @@ public class MqttProperties {
         this.endPoint = endPoint;
     }
 
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
-    }
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public int getTimeToWait() {
+    public Long getTimeToWait() {
         return timeToWait;
     }
 
-    public void setTimeToWait(int timeToWait) {
+    public void setTimeToWait(Long timeToWait) {
         this.timeToWait = timeToWait;
     }
 
+    public Integer getQosLevel() {
+        return qosLevel;
+    }
+
+    public void setQosLevel(Integer qosLevel) {
+        this.qosLevel = qosLevel;
+    }
+
+    public String getParentTopic() {
+        return parentTopic;
+    }
+
+    public void setParentTopic(String parentTopic) {
+        this.parentTopic = parentTopic;
+    }
 }
