@@ -52,14 +52,14 @@ public class TokenApiClient {
     @Resource
     private RedissonClient redissonClient;
 
+    /**
+     * 令牌名称
+     */
+    private static final String LIMIT_RATE_NAME = "mqtt:apply:limiter:";
     public static final String TOKEN_KEY_PREFIX = "mqtt:apply:token:";
     public static final String TOKEN_LOCK_PREFIX = "mqtt:apply:lock:";
 
     public static final Long FIVE_MINUTE_MICROSECONDS = 300000L;
-    /**
-     * 令牌名称
-     */
-    private static final String LIMIT_RATE_NAME = "mqtt:apply:limiter";
 
     /**
      * 令牌产生速率
@@ -98,7 +98,7 @@ public class TokenApiClient {
     private ApplyTokenResponseVO getTokenFromRedis(String deviceId,
         ApplyTokenResponseVO tokenResponseVO) {
         if (StringUtils.isNotBlank(deviceId)) {
-            String key = TOKEN_KEY_PREFIX + deviceId;
+            String key = redisClient.buildKey(TOKEN_KEY_PREFIX + deviceId);
             String oldToken = redisClient.get(key);
             if (StringUtils.isNotBlank(oldToken)) {
                 tokenResponseVO.setToken(oldToken);
