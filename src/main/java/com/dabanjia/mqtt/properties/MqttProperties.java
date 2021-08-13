@@ -17,40 +17,54 @@ public class MqttProperties {
      * MQ4IOT 实例 ID，购买后控制台获取
      */
     private String instanceId;
+
     /**
      * 接入点地址，购买 MQ4IOT 实例，且配置完成后即可获取，接入点地址必须填写分配的域名，不得使用 IP 地址直接连接，否则可能会导致客户端异常。
      */
     private String endPoint;
+
     /**
      * 账号 accessKey，从账号系统控制台获取
      */
     private String accessKey;
+
     /**
      * 账号 secretKey，从账号系统控制台获取，仅在Signature鉴权模式下需要设置
      */
     private String secretKey;
+
     /**
      * MQ4IOT 消息的一级 topic，需要在控制台申请才能使用。 如果使用了没有申请或者没有被授权的 topic 会导致鉴权失败，服务端会断开客户端连接。
      */
     private String parentTopic;
+
+    /**
+     * 指定一组逻辑功能完全一致的节点共用的组名，代表一类相同功能的设备
+     */
+    private String groupId;
+
     /**
      * QoS参数代表传输质量，可选0，1，2
      */
     private Integer qosLevel;
+
     /**
      * Token的权限类型，取值说明如下：
      * <p>
      * R：只有读权限。 W：只有写权限。 R,W：同时拥有读和写的权限，R和W之间需要用逗号（,）隔开。
      */
     private String actions;
+
     /**
      * Token失效的毫秒时间戳，允许设置的失效最小间隔是60秒，最长为30天。如果输入的取值超过30天，申请接口不会报错，但实际生效时间为30天。。
      */
     private Long expireTime;
+
     /**
      * 微消息队列MQTT版实例所在地域（Region）。
      */
     private String regionId;
+
     /**
      * 客户端超时时间
      */
@@ -137,5 +151,13 @@ public class MqttProperties {
 
     public void setParentTopic(String parentTopic) {
         this.parentTopic = parentTopic;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 }
