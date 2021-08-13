@@ -79,7 +79,7 @@ public class TokenApiClient {
      */
     public ApplyTokenResponseVO applyToken(List<String> topics, String deviceId)
         throws ClientException {
-        RLock lock = redissonClient.getLock(TOKEN_LOCK_PREFIX + deviceId);
+        RLock lock = redissonClient.getLock(redisClient.buildKey(TOKEN_LOCK_PREFIX + deviceId));
         try {
             lock.lock();
             ApplyTokenResponseVO tokenResponseVO = new ApplyTokenResponseVO();
@@ -201,7 +201,7 @@ public class TokenApiClient {
     }
 
     private RRateLimiter getRRateLimiter(String deviceId) {
-        String limiterKey = redisClient.buildKey(LIMIT_RATE_NAME) + deviceId;
+        String limiterKey = redisClient.buildKey(LIMIT_RATE_NAME + deviceId);
         RRateLimiter rateLimiter = redissonClient.getRateLimiter(limiterKey);
         rateLimiter.trySetRate(RateType.OVERALL, LIMIT_RATE, LIMIT_RATE_TIME,
             RateIntervalUnit.SECONDS);
